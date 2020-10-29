@@ -1,3 +1,4 @@
 .terraform/
 .idea/
 apply.tfplan
+terraform.tfplan
