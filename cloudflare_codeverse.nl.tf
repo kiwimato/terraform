@@ -61,7 +61,14 @@ resource "cloudflare_record" "codeverse-dkim" {
   zone_id  = cloudflare_zone.codeverse.id
   name     = "google._domainkey"
   value    = "v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuKkTjfQYG75PQE8qN4zPx3mTeDG62DFfQqGLmKBGDzaCRKLkaoeuzma3AAyd0EBnMdneYoKxL0zLGL5HHRL1MkfxgYA04/gM6JDb2XHSYfhFMzjmCPowL4RqTRNa7xj5KlhPOUMaSQX790HeyVe1yXAucH5f3kdo68/kGb2b7ahn8kmIHlpYZMam8geyDxM8a7CtHfzzE0fgjwwEDxpTpql9BCqm1ZcIlUl8VWPIFCkrzqqACWH8AFmhGwO0m6hO5s+3DNvbFEd2jgjVVPBZ1enhrm2V7zvclx3CtahzlHw3gREKzHniFgHISFypLUu+extB0ELHVsPetDC0s67/9wIDAQAB"
-  priority = 15
+  type     = "TXT"
+  ttl      = 1
+}
+
+resource "cloudflare_record" "codeverse-dmarc" {
+  zone_id  = cloudflare_zone.codeverse.id
+  name     = "_dmarc"
+  value    = "v=DMARC1; p=quarantine; pct=100; rua=mailto:re+zdak9grulki@dmarc.postmarkapp.com; sp=quarantine; adkim=s; aspf=s;"
   type     = "TXT"
   ttl      = 1
 }
