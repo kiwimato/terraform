@@ -72,3 +72,11 @@ resource "cloudflare_record" "codeverse-dmarc" {
   type     = "TXT"
   ttl      = 1
 }
+
+resource "cloudflare_record" "codeverse-spf" {
+  zone_id  = cloudflare_zone.codeverse.id
+  name     = "codeverse.nl"
+  value    = "v=spf1 include:_spf.google.com ~all"
+  type     = "TXT"
+  ttl      = 1
+}
