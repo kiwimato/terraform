@@ -2,7 +2,6 @@ provider "digitalocean" {
 }
 
 provider "cloudflare" {
-  version = "~> 2.0"
 }
 
 // Terraform doesn't support DO spaces as backend, but luckily we can use S3 and trick it to use it anyway, since Spaces is very similar with S3.

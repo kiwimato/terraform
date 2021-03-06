@@ -1,4 +1,5 @@
-.terraform/
+.terraform*
+terraform*
 .idea/
+.env
 apply.tfplan
-terraform.tfplan
