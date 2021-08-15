@@ -12,6 +12,10 @@ resource "digitalocean_droplet" "vpn-uk-dacia-ninja" {
     24059548, #yubikey
   ]
 
+  lifecycle {
+    ignore_changes = [ tags ]
+  }
+
   connection {
     host = self.ipv4_address
     user = "root"
@@ -22,10 +26,6 @@ resource "digitalocean_droplet" "vpn-uk-dacia-ninja" {
   provisioner "remote-exec" {
     script = "templates/install-wireguard.sh"
   }
-}
-
-output "ipv4_address" {
-  value = digitalocean_droplet.vpn-uk-dacia-ninja.ipv4_address
 }
 
 # Create a DNS record for the VPN
