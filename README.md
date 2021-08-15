@@ -25,6 +25,7 @@ export SPACES_SECRET_ACCESS_KEY=XXXXXX
 export AWS_ACCESS_KEY_ID="${SPACES_ACCESS_KEY_ID}"
 export AWS_SECRET_ACCESS_KEY="${SPACES_SECRET_ACCESS_KEY}"
 ```
+
 Note: Since Terraform doesn't yet have a DigitalOcean Space backend, we need `AWS_*` to point to `SPACES_*` credentials 
 You can also install [doctl](https://github.com/digitalocean/doctl/blob/master/README.md) which makes it easier to query DO resources.
 
