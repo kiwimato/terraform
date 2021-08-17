@@ -51,9 +51,10 @@ chmod -R og-rwx /etc/wireguard/*
 sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/' /etc/sysctl.conf
 sysctl -p
 
-ufw allow ssh
-ufw allow 51888/udp
-ufw --force enable
+# ufw interferes for some reason with wireguard, so disabling it since we don't really need it
+#ufw allow ssh
+#ufw allow 51888/udp
+ufw --force disable
 
 systemctl enable wg-quick@wg0.service
 systemctl start wg-quick@wg0.service
