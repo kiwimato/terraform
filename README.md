@@ -5,6 +5,7 @@ This is just a small Terraform project which I use to manage my personal domains
 ## Initial setup
 We always have to `init` first after you clone the repo.
 ```bash
+mkdir /home/mihai/.tfcache
 terraform init
 ```
 
