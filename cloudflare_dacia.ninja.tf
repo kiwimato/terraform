@@ -35,19 +35,20 @@ resource "cloudflare_record" "pf-dacia-ninja" {
   ttl     = 1
 }
 
-resource "cloudflare_record" "unifi-dacia-ninja" {
-  zone_id = cloudflare_zone.dacia-ninja.id
-  name    = "unifi"
-  value   = var.IPv4.unraid
-  type    = "A"
-  ttl     = 1
-}
-
 // Nadastie
 resource "cloudflare_record" "nadastie-dacia-ninja" {
   zone_id = cloudflare_zone.dacia-ninja.id
   name    = "nadastie"
-  value   = var.IPv4.nadastie
+  value   = var.IPv6.nadastie
+  type    = "AAAA"
+  ttl     = 1
+}
+
+// this shenenigan is because Nadastie has no IPv4, so I'm routing things through digital ocean to convert IPv4 to IPv6
+resource "cloudflare_record" "nadastie-dacia-ninja-ipv4" {
+  zone_id = cloudflare_zone.dacia-ninja.id
+  name    = "nadastie"
+  value   = digitalocean_droplet.ocean-dacia-ninja.ipv4_address
   type    = "A"
   ttl     = 1
 }
