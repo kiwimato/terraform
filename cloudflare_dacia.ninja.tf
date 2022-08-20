@@ -48,7 +48,7 @@ resource "cloudflare_record" "nadastie-dacia-ninja" {
 resource "cloudflare_record" "nadastie-dacia-ninja-ipv4" {
   zone_id = cloudflare_zone.dacia-ninja.id
   name    = "nadastie"
-  value   = digitalocean_droplet.ocean-dacia-ninja.ipv4_address
+  value   = "46.101.113.161"
   type    = "A"
   ttl     = 1
 }
@@ -73,7 +73,7 @@ resource "cloudflare_record" "ego-dacia-ninja" {
 resource "cloudflare_record" "ocean-dacia-ninja" {
   zone_id = cloudflare_zone.dacia-ninja.id
   name    = "ocean"
-  value   = digitalocean_droplet.ocean-dacia-ninja.ipv4_address
+  value   = "46.101.113.161"
   type    = "A"
   ttl     = 1
 }
