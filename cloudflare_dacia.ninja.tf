@@ -6,32 +6,32 @@ resource "cloudflare_zone" "dacia-ninja" {
 resource "cloudflare_record" "dacia-ninja-root" {
   zone_id = cloudflare_zone.dacia-ninja.id
   name    = "@"
-  value   = var.IPv4.unraid
-  type    = "A"
+  value   = var.IPv6.nadastie
+  type    = "AAAA"
   ttl     = 1
 }
 
 resource "cloudflare_record" "www-dacia-ninja" {
   zone_id = cloudflare_zone.dacia-ninja.id
   name    = "www"
-  value   = var.IPv4.unraid
-  type    = "A"
+  value   = var.IPv6.nadastie
+  type    = "AAAA"
   ttl     = 1
 }
 
 resource "cloudflare_record" "foreman-dacia-ninja" {
   zone_id = cloudflare_zone.dacia-ninja.id
   name    = "foreman"
-  value   = var.IPv4.unraid
-  type    = "A"
+  value   = var.IPv6.nadastie
+  type    = "AAAA"
   ttl     = 1
 }
 
 resource "cloudflare_record" "pf-dacia-ninja" {
   zone_id = cloudflare_zone.dacia-ninja.id
   name    = "pf"
-  value   = var.IPv4.unraid
-  type    = "A"
+  value   = var.IPv6.nadastie
+  type    = "AAAA"
   ttl     = 1
 }
 

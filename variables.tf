@@ -1,6 +1,6 @@
 variable IPv4 {
   default = {
-    unraid   = "92.86.92.171"
+    timisoara   = "92.86.92.171"
   }
 }
 
