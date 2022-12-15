@@ -1,6 +1,8 @@
 variable IPv4 {
   default = {
-    timisoara   = "92.86.92.171"
+    timisoara = "92.86.92.171"
+    ocean     = "46.101.113.161"
+    nadastie  = "90.84.230.49"
   }
 }
 
