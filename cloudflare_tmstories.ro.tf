@@ -5,8 +5,8 @@ resource "cloudflare_zone" "tmstories-ro" {
 resource "cloudflare_record" "root" {
   zone_id = cloudflare_zone.tmstories-ro.id
   name    = "@"
-  value   = var.IPv4.ocean
-  type    = "A"
+  value   = var.hostnames.tm-stories-app
+  type    = "CNAME"
   ttl     = 1
   proxied = true
 }
@@ -14,17 +14,8 @@ resource "cloudflare_record" "root" {
 resource "cloudflare_record" "www" {
   zone_id = cloudflare_zone.tmstories-ro.id
   name    = "www"
-  value   = var.IPv4.ocean
-  type    = "A"
-  ttl     = 1
-  proxied = true
-}
-
-resource "cloudflare_record" "staging" {
-  zone_id = cloudflare_zone.tmstories-ro.id
-  name    = "staging"
-  value   = var.IPv4.ocean
-  type    = "A"
+  value   = var.hostnames.tm-stories-app
+  type    = "CNAME"
   ttl     = 1
   proxied = true
 }

@@ -2,6 +2,26 @@ resource "cloudflare_zone" "codeverse" {
   zone = "codeverse.nl"
 }
 
+resource "cloudflare_record" "codeverse-resume" {
+  zone_id  = cloudflare_zone.codeverse.id
+  name     = "resume"
+  value    = var.IPv4.ocean
+  priority = 1
+  type     = "A"
+  ttl      = 1
+  proxied = true
+}
+
+resource "cloudflare_record" "codeverse-www" {
+  zone_id  = cloudflare_zone.codeverse.id
+  name     = "codeverse.nl"
+  value    = var.IPv4.ocean
+  priority = 1
+  type     = "A"
+  ttl      = 1
+  proxied = true
+}
+
 // Mail
 resource "cloudflare_record" "codeverse-mx" {
   zone_id  = cloudflare_zone.codeverse.id

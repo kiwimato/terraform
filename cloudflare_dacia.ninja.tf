@@ -19,14 +19,6 @@ resource "cloudflare_record" "www-dacia-ninja" {
   ttl     = 60
 }
 
-resource "cloudflare_record" "foreman-dacia-ninja" {
-  zone_id = cloudflare_zone.dacia-ninja.id
-  name    = "foreman"
-  value   = var.IPv4.nadastie
-  type    = "A"
-  ttl     = 60
-}
-
 resource "cloudflare_record" "pf-dacia-ninja" {
   zone_id = cloudflare_zone.dacia-ninja.id
   name    = "pf"
@@ -39,6 +31,30 @@ resource "cloudflare_record" "pf-dacia-ninja" {
 resource "cloudflare_record" "nadastie-dacia-ninja" {
   zone_id = cloudflare_zone.dacia-ninja.id
   name    = "nadastie"
+  value   = var.IPv4.nadastie
+  type    = "A"
+  ttl     = 60
+}
+
+resource "cloudflare_record" "unifi-dacia-ninja" {
+  zone_id = cloudflare_zone.dacia-ninja.id
+  name    = "unifi"
+  value   = var.IPv4.nadastie
+  type    = "A"
+  ttl     = 60
+}
+
+resource "cloudflare_record" "invoice-dacia-ninja" {
+  zone_id = cloudflare_zone.dacia-ninja.id
+  name    = "invoice"
+  value   = var.IPv4.nadastie
+  type    = "A"
+  ttl     = 60
+}
+
+resource "cloudflare_record" "plex-dacia-ninja" {
+  zone_id = cloudflare_zone.dacia-ninja.id
+  name    = "plex"
   value   = var.IPv4.nadastie
   type    = "A"
   ttl     = 60
@@ -80,7 +96,7 @@ resource "cloudflare_record" "resume-dacia-ninja" {
 resource "cloudflare_record" "wim-dacia-ninja" {
   zone_id = cloudflare_zone.dacia-ninja.id
   name    = "wim"
-  value   = var.IPv4.ocean
-  type    = "A"
+  value   = var.hostnames.wim-dacia-ninja
+  type    = "CNAME"
   ttl     = 60
 }
