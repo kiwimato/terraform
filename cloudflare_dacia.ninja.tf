@@ -60,6 +60,14 @@ resource "cloudflare_record" "plex-dacia-ninja" {
   ttl     = 60
 }
 
+resource "cloudflare_record" "webdav-dacia-ninja" {
+  zone_id = cloudflare_zone.dacia-ninja.id
+  name    = "webdav"
+  value   = var.hostnames.nadastie
+  type    = "CNAME"
+  ttl     = 60
+}
+
 // Ocean
 resource "cloudflare_record" "dojo-dacia-ninja" {
   zone_id = cloudflare_zone.dacia-ninja.id
